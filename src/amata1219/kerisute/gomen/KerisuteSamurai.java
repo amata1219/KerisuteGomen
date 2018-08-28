@@ -165,6 +165,14 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 						d.getBlockedMods().add(new Mod("LiteLoader", ""));
 						d.setShouldKick(true);
 					}
+				}else if(name.hashCode() == -1616516597){
+					l = true;
+					sb.append(",LiteLoader");
+					d.setLiteLoaderClient(true);
+					if(!allowLiteLoaderClientLogin && !d.isIgnoreModCheck()){
+						d.getBlockedMods().add(new Mod("LiteLoader", ""));
+						d.setShouldKick(true);
+					}
 				}else{
 					sb.append("," + name);
 					d.getOtherClients().add(name);
