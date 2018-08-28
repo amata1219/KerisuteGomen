@@ -1,0 +1,15 @@
+name: KerisuteGomen
+main: amata1219.kerisute.gomen.KerisuteGomen
+version: 1.0.0
+author: amata1219(Twitter@amata1219)
+
+commands:
+  kerisute:
+    description: main command.
+    usage: /<usage>
+    permission: kerisute.samurai.kerisute.command
+    permission-message: You do not have permission "<permission>".
+
+permissions:
+  kerisute.samurai.ignore:
+    description: can ignore modcheck.

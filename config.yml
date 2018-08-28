@@ -1,0 +1,20 @@
+EnableLogging: true
+KickMessage: "[player] is kicked by KerisuteGomen\nBlocked Mods: [mods]"
+KickMessageReceiver: []
+Forge:
+  CanLogin: true
+  ModCheck: true
+  EnableModIDWhitelist: true
+  Whitelist: []
+LiteLoader:
+  CanLogin: true
+  ModCheck: true
+  EnableModIDWhitelist: true
+  Whitelist: []
+NonForge5zig:
+  CanLogin: true
+LabyMod:
+  CanLogin: true
+RegisterCustomClients: []
+OtherClient:
+  CanLogin: false
