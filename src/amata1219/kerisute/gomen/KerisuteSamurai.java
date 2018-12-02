@@ -50,8 +50,11 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 	private final String FMLHS = "FML|HS";
 	private final String PERMISSIONSREPL = "PERMISSIONSREPL";
 	private final String ZigSet = "5zig_Set";
+	//modname:  5zig
 	//private final String LABYMOD = "LABYMOD";
 	private final String LMC = "LMC";
+	private final String WECUI = "WECUI";
+	//modname:  WorldEditCUI
 
 	private final List<String> ignoreMods = new ArrayList<String>(Arrays.asList("minecraft", "FML", "forge", "mcp", "Minecraft Forge", "LiteLoader", "LabyMod"));
 
@@ -114,9 +117,18 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 			if(d.isUsing5zig())return;
 			d.setUsing5zig(true);
 			Mod mod = new Mod("5zig", "[cannot get version]");
-			d.getBlockedMods().add(mod);
 			d.getForgeMods().add(mod);
 			if(!allowNonForge5zigClientLogin && !d.isIgnoreModCheck()){
+				d.getBlockedMods().add(mod);
+				d.setShouldKick(true);
+			}
+		}else if(c.equals(WECUI)){
+			ClientData d = getClientData(p);
+			d.getUsingChannels().add(c);
+			Mod mod = new Mod("WorldEditCUI", "[cannot get version]");
+			d.getLiteLoaderMods().add(mod);
+			if(!liteLoaderModIDWhitelist.contains(mod.getId())){
+				d.getBlockedMods().add(mod);
 				d.setShouldKick(true);
 			}
 		}

@@ -23,37 +23,37 @@ public class KerisuteGomen extends JavaPlugin{
 		config.saveDefaultConfig();
 		samurai = new KerisuteSamurai(plugin);
 		getServer().getPluginManager().registerEvents(samurai, plugin);
-		getServer().getMessenger().registerIncomingPluginChannel(plugin, "MC|Brand", samurai);
-		getServer().getMessenger().registerOutgoingPluginChannel(plugin, "MC|Brand");
-		getServer().getMessenger().registerIncomingPluginChannel(plugin, "FML|HS", samurai);
-		getServer().getMessenger().registerOutgoingPluginChannel(plugin, "FML|HS");
-		getServer().getMessenger().registerIncomingPluginChannel(plugin, "PERMISSIONSREPL", samurai);
-		getServer().getMessenger().registerOutgoingPluginChannel(plugin, "PERMISSIONSREPL");
-		getServer().getMessenger().registerIncomingPluginChannel(plugin, "5zig_Set", samurai);
-		getServer().getMessenger().registerOutgoingPluginChannel(plugin, "5zig_Set");
-		//getServer().getMessenger().registerIncomingPluginChannel(plugin, "LABYMOD", samurai);
-		//getServer().getMessenger().registerOutgoingPluginChannel(plugin, "LABYMOD");
-		getServer().getMessenger().registerIncomingPluginChannel(plugin, "LMC", samurai);
-		getServer().getMessenger().registerOutgoingPluginChannel(plugin, "LMC");
+		registerPluginChannel("MC|Brand");
+		registerPluginChannel("FML|HS");
+		registerPluginChannel("PERMISSIONSREPL");
+		registerPluginChannel("5zig_Set");
+		registerPluginChannel("LMC");
+		//registerPluginChannel("LABYMOD");
+		registerPluginChannel("WECUI");
 		commands.put("kerisute", new KerisuteCommand(plugin));
 	}
 
 	@Override
 	public void onDisable(){
-		getServer().getMessenger().unregisterIncomingPluginChannel(plugin, "MC|Brand", samurai);
-		getServer().getMessenger().unregisterOutgoingPluginChannel(plugin, "MC|Brand");
-		getServer().getMessenger().unregisterIncomingPluginChannel(plugin, "FML|HS", samurai);
-		getServer().getMessenger().unregisterOutgoingPluginChannel(plugin, "FML|HS");
-		getServer().getMessenger().unregisterIncomingPluginChannel(plugin, "PERMISSIONSREPL", samurai);
-		getServer().getMessenger().unregisterOutgoingPluginChannel(plugin, "PERMISSIONSREPL");
-		getServer().getMessenger().unregisterIncomingPluginChannel(plugin, "5zig_Set", samurai);
-		getServer().getMessenger().unregisterOutgoingPluginChannel(plugin, "5zig_Set");
-		//getServer().getMessenger().unregisterIncomingPluginChannel(plugin, "LABYMOD", samurai);
-		//getServer().getMessenger().unregisterOutgoingPluginChannel(plugin, "LABYMOD");
-		getServer().getMessenger().unregisterIncomingPluginChannel(plugin, "LMC", samurai);
-		getServer().getMessenger().unregisterOutgoingPluginChannel(plugin, "LMC");
+		unregisterPluginChannel("MC|Brand");
+		unregisterPluginChannel("FML|HS");
+		unregisterPluginChannel("PERMISSIONSREPL");
+		unregisterPluginChannel("5zig_Set");
+		unregisterPluginChannel("LMC");
+		//unregisterPluginChannel("LABYMOD");
+		unregisterPluginChannel("WECUI");
 		PlayerRegisterChannelEvent.getHandlerList().unregister(samurai);
 		ClientLoginEvent.getHandlerList().unregister(samurai);
+	}
+
+	private void registerPluginChannel(String channel){
+		getServer().getMessenger().registerIncomingPluginChannel(plugin, channel, samurai);
+		getServer().getMessenger().registerOutgoingPluginChannel(plugin, channel);
+	}
+
+	private void unregisterPluginChannel(String channel){
+		getServer().getMessenger().unregisterIncomingPluginChannel(plugin, channel, samurai);
+		getServer().getMessenger().unregisterOutgoingPluginChannel(plugin, channel);
 	}
 
 	@Override
