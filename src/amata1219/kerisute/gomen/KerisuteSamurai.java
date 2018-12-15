@@ -127,7 +127,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 			d.getUsingChannels().add(c);
 			Mod mod = new Mod("WorldEditCUI", "[cannot get version]");
 			d.getLiteLoaderMods().add(mod);
-			if(!liteLoaderModIDWhitelist.contains(mod.getId())){
+			if(isEnableLiteLoaderModIDWhitelist && !liteLoaderModIDWhitelist.contains(mod.getId())){
 				d.getBlockedMods().add(mod);
 				d.setShouldKick(true);
 			}
