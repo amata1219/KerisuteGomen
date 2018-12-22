@@ -2,11 +2,21 @@ package amata1219.kerisute.gomen;
 
 public class Mod {
 
-	private String id, version;
+	private final Type type;
 
-	public Mod(String id, String version){
+	private final String id;
+	private final String version;
+
+	private boolean block;
+
+	public Mod(Type type, String id, String version){
+		this.type = type;
 		this.id = id;
 		this.version = version;
+	}
+
+	public Type getType(){
+		return type;
 	}
 
 	public String getId() {
@@ -15,6 +25,14 @@ public class Mod {
 
 	public String getVersion() {
 		return version;
+	}
+
+	public boolean isBlocked() {
+		return block;
+	}
+
+	public void setBlock(boolean block) {
+		this.block = block;
 	}
 
 }

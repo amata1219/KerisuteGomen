@@ -16,18 +16,21 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import amata1219.receiving.packets.on.spigot.PacketInjector;
 import net.eq2online.permissions.ReplicatedPermissionsContainer;
 
 public class KerisuteSamurai implements Listener, PluginMessageListener{
 
 	//private boolean DEBUG = true;
 
-	private KerisuteGomen plugin;
+	private KerisuteGomenOld plugin;
+	private static PacketInjector injector;
 	private CustomConfig config;
 
 	private boolean isEnableLogging = true;
@@ -58,8 +61,9 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 
 	private final List<String> ignoreMods = new ArrayList<String>(Arrays.asList("minecraft", "FML", "forge", "mcp", "Minecraft Forge", "LiteLoader", "LabyMod"));
 
-	public KerisuteSamurai(KerisuteGomen plugin){
+	public KerisuteSamurai(KerisuteGomenOld plugin){
 		this.plugin = plugin;
+		injector = new PacketInjector();
 		config = plugin.getMainConfig();
 		loadValues();
 	}
@@ -84,6 +88,11 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 	}
 
 	@EventHandler
+	public void onPlayerJoinEvent(PlayerJoinEvent e){
+		injector.addPlayer(e.getPlayer());
+	}
+
+	@EventHandler
 	public void onQuit(PlayerQuitEvent e){
 		UUID uuid = e.getPlayer().getUniqueId();
 		clients.remove(uuid);
@@ -95,6 +104,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 	public void onRegisterChannel(PlayerRegisterChannelEvent e){
 		Player p = e.getPlayer();
 		String c = e.getChannel();
+		System.out.println(c);
 		//if(DEBUG)print(c);
 		if(clients.containsKey(p.getUniqueId())){
 			clients.get(p.getUniqueId()).getUsingChannels().add(c);
@@ -116,7 +126,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 			d.getUsingChannels().add(c);
 			if(d.isUsing5zig())return;
 			d.setUsing5zig(true);
-			Mod mod = new Mod("5zig", "[cannot get version]");
+			ModOld mod = new ModOld("5zig", "[cannot get version]");
 			d.getForgeMods().add(mod);
 			if(!allowNonForge5zigClientLogin && !d.isIgnoreModCheck()){
 				d.getBlockedMods().add(mod);
@@ -125,7 +135,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 		}else if(c.equals(WECUI)){
 			ClientData d = getClientData(p);
 			d.getUsingChannels().add(c);
-			Mod mod = new Mod("WorldEditCUI", "[cannot get version]");
+			ModOld mod = new ModOld("WorldEditCUI", "[cannot get version]");
 			d.getLiteLoaderMods().add(mod);
 			if(isEnableLiteLoaderModIDWhitelist && !liteLoaderModIDWhitelist.contains(mod.getId())){
 				d.getBlockedMods().add(mod);
@@ -166,7 +176,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 					sb.append(",Minecraft Forge");
 					d.setForgeClient(true);
 					if(!allowForgeClientLogin && !d.isIgnoreModCheck()){
-						d.getBlockedMods().add(new Mod("Minecraft Forge", ""));
+						d.getBlockedMods().add(new ModOld("Minecraft Forge", ""));
 						d.setShouldKick(true);
 					}
 				}else if(name.equals("LiteLoader")){
@@ -174,7 +184,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 					sb.append(",LiteLoader");
 					d.setLiteLoaderClient(true);
 					if(!allowLiteLoaderClientLogin && !d.isIgnoreModCheck()){
-						d.getBlockedMods().add(new Mod("LiteLoader", ""));
+						d.getBlockedMods().add(new ModOld("LiteLoader", ""));
 						d.setShouldKick(true);
 					}
 				}else if(name.hashCode() == -1616516597){
@@ -182,14 +192,14 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 					sb.append(",LiteLoader");
 					d.setLiteLoaderClient(true);
 					if(!allowLiteLoaderClientLogin && !d.isIgnoreModCheck()){
-						d.getBlockedMods().add(new Mod("LiteLoader", ""));
+						d.getBlockedMods().add(new ModOld("LiteLoader", ""));
 						d.setShouldKick(true);
 					}
 				}else{
 					sb.append("," + name);
 					d.getOtherClients().add(name);
 					if(!customClients.contains(name) && allowOtherClientLogin){
-						d.getBlockedMods().add(new Mod(name, ""));
+						d.getBlockedMods().add(new ModOld(name, ""));
 						d.setShouldKick(true);
 					}
 				}
@@ -233,11 +243,11 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 		}else if(channel.equals(FMLHS)){
 			ClientData d = getClientData(player);
 			d.getUsingChannels().add(channel);
-			List<Mod> mods = getMods(data);
+			List<ModOld> mods = getMods(data);
 			if(mods.isEmpty())return;
 			d.setForgeMods(mods);
 			if(forgeModCheck && isEnableForgeModIDWhitelist){
-				for(Mod mod : mods){
+				for(ModOld mod : mods){
 					String id = mod.getId();
 					if(!forgeModIDWhitelist.contains(id)){
 						if(ignoreMods.contains(id))continue;
@@ -252,7 +262,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 			try {
 				ObjectInputStream inputStream = new ObjectInputStream(new ByteArrayInputStream(data));
 				ReplicatedPermissionsContainer rpc = (ReplicatedPermissionsContainer) inputStream.readObject();
-				Mod mod = new Mod(rpc.modName, String.valueOf(rpc.modVersion));
+				ModOld mod = new ModOld(rpc.modName, String.valueOf(rpc.modVersion));
 				d.getLiteLoaderMods().add(mod);
 				if(liteLoaderModCheck && isEnableLiteLoaderModIDWhitelist){
 					if(!liteLoaderModIDWhitelist.contains(mod.getId())){
@@ -274,7 +284,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 			ClientData d = getClientData(player);
 			d.setLabyModClient(true);
 			if(!allowLabyModClientLogin){
-				d.getBlockedMods().add(new Mod("LabyMod", ""));
+				d.getBlockedMods().add(new ModOld("LabyMod", ""));
 				d.setShouldKick(true);
 			}
 		}
@@ -293,7 +303,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 		}
 		if(!d.isIgnoreModCheck() && d.shouldKick()){
 			StringBuilder sb = new StringBuilder();
-			for(Mod mod : d.getBlockedMods()){
+			for(ModOld mod : d.getBlockedMods()){
 				if(ignoreMods.contains(mod.getId())){
 					sb.append(", " + ChatColor.RED + mod.getId() + ChatColor.RESET);
 					continue;
@@ -318,7 +328,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 		StringBuilder sb = new StringBuilder();
 		String forgeMods = d.isForgeClient() ? "Forge: true" : "Forge: false";
 		if(d.isForgeClient()){
-			for(Mod mod : d.getForgeMods()){
+			for(ModOld mod : d.getForgeMods()){
 				if(ignoreMods.contains(mod.getId())){
 					sb.append(", " + mod.getId() + ChatColor.RESET);
 					continue;
@@ -330,7 +340,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 		}
 		String liteLoaderMods = d.isLiteLoaderClient() ? "LiteLoader: true" : "LiteLoader: false";
 		if(d.isLiteLoaderClient()){
-			for(Mod mod : d.getLiteLoaderMods()){
+			for(ModOld mod : d.getLiteLoaderMods()){
 				sb.append(", " + ((d.getBlockedMods().contains(mod) && !d.isIgnoreModCheck()) ? ChatColor.RED + "*" : "") + mod.getId() + "-" + mod.getVersion() + "" + ChatColor.RESET);
 			}
 			liteLoaderMods = liteLoaderMods + "(Mods: " + (sb.toString().equals("") ? "null" : sb.toString().substring(2)) + ")" + ChatColor.RESET;
@@ -369,8 +379,8 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 		return clients.get(uuid);
 	}
 
-	private List<Mod> getMods(byte[] data){
-		List<Mod> mods = new ArrayList<Mod>();
+	private List<ModOld> getMods(byte[] data){
+		List<ModOld> mods = new ArrayList<ModOld>();
 		boolean store = false;
 		String name = null;
 		for(int i = 2; i < data.length; store = !store){
@@ -378,7 +388,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 			byte[] range = Arrays.copyOfRange(data, i + 1, end);
 			String version = new String(range, StandardCharsets.UTF_8);
 			if(store){
-				mods.add(new Mod(name, version));
+				mods.add(new ModOld(name, version));
 			}else{
 				name = version;
 			}

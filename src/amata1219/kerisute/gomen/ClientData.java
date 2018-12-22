@@ -14,9 +14,9 @@ public class ClientData {
 	private List<String> otherClients = new ArrayList<String>();
 	private Set<String> usingChannels = new HashSet<String>();
 	private boolean isForgeClient, isLiteLoaderClient, isLabyModClient;
-	private List<Mod> forgeMods = new ArrayList<Mod>(), liteLoaderMods = new ArrayList<Mod>();
+	private List<ModOld> forgeMods = new ArrayList<ModOld>(), liteLoaderMods = new ArrayList<ModOld>();
 	private boolean isUsing5zig;
-	private List<Mod> blockedMods = new ArrayList<Mod>();
+	private List<ModOld> blockedMods = new ArrayList<ModOld>();
 	private boolean shouldKick;
 	private boolean fcheck, lcheck;
 
@@ -94,7 +94,7 @@ public class ClientData {
 
 	public boolean isForgeWurstClient() {
 		boolean b = false;
-		for(Mod mod : forgeMods){
+		for(ModOld mod : forgeMods){
 			if(mod.getId().equals("forgewurst")){
 				b = true;
 				continue;
@@ -107,19 +107,19 @@ public class ClientData {
 		return !otherClients.isEmpty();
 	}
 
-	public List<Mod> getForgeMods() {
+	public List<ModOld> getForgeMods() {
 		return forgeMods;
 	}
 
-	public void setForgeMods(List<Mod> forgeMods) {
+	public void setForgeMods(List<ModOld> forgeMods) {
 		this.forgeMods = forgeMods;
 	}
 
-	public List<Mod> getLiteLoaderMods() {
+	public List<ModOld> getLiteLoaderMods() {
 		return liteLoaderMods;
 	}
 
-	public void setLiteloaderMods(List<Mod> liteLoaderMods) {
+	public void setLiteloaderMods(List<ModOld> liteLoaderMods) {
 		this.liteLoaderMods = liteLoaderMods;
 	}
 
@@ -131,11 +131,11 @@ public class ClientData {
 		return isUsing5zig;
 	}
 
-	public List<Mod> getBlockedMods() {
+	public List<ModOld> getBlockedMods() {
 		return blockedMods;
 	}
 
-	public void setBlockedMods(List<Mod> blockedMods) {
+	public void setBlockedMods(List<ModOld> blockedMods) {
 		this.blockedMods = blockedMods;
 	}
 

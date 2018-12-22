@@ -14,13 +14,13 @@ public class CustomConfig {
 	private FileConfiguration config = null;
 	private final File configFile;
 	private final String file;
-	private final KerisuteGomen plugin;
+	private final KerisuteGomenOld plugin;
 
-	public CustomConfig(KerisuteGomen plugin){
+	public CustomConfig(KerisuteGomenOld plugin){
 		this(plugin, "config.yml");
 	}
 
-	public CustomConfig(KerisuteGomen plugin, String fileName){
+	public CustomConfig(KerisuteGomenOld plugin, String fileName){
 		this.plugin = plugin;
 		this.file = fileName;
 		configFile = new File(plugin.getDataFolder(), file);

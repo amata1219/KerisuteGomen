@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 
 public class KerisuteCommand implements TabExecutor{
 
-	private KerisuteGomen plugin;
+	private KerisuteGomenOld plugin;
 
-	public KerisuteCommand(KerisuteGomen plugin){
+	public KerisuteCommand(KerisuteGomenOld plugin){
 		this.plugin = plugin;
 	}
 
