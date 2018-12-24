@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen;
+package amata1219.kerisute.gomen.old;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.bukkit.entity.Player;
+
+import amata1219.kerisute.gomen.ModOld;
 
 public class ClientData {
 

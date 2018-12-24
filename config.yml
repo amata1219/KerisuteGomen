@@ -18,3 +18,25 @@ LabyMod:
 RegisterCustomClients: []
 OtherClient:
   CanLogin: false
+
+Logging:
+KickMessage: "[player] is kicked by KerisuteGomen\nBlocked Mods: [mods]"
+Forge:
+  Login: true
+  ModsCheck: true
+  UseWhitelist: true
+  Whitelist: []
+LiteLoader:
+  Login: true
+  ModsCheck: true
+  UseWhitelist: true
+  Whitelist: []
+NonForge5zig:
+  Login: true
+LabyMod:
+  Login: true
+OtherClients:
+  Login: true
+  ClientsCheck: true
+  UseWhitelist: true
+  Whitelist: []

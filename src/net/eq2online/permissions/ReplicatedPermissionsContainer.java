@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class ReplicatedPermissionsContainer implements Serializable{
+public class ReplicatedPermissionsContainer implements Serializable {
 
 	private static final long serialVersionUID = -764940324881984960L;
 
@@ -39,16 +39,19 @@ public class ReplicatedPermissionsContainer implements Serializable{
 	}
 
 	public void sanitise(){
-		if (this.modName == null || this.modName.length() < 1) this.modName = "all";
-		if (this.modVersion == null || this.modVersion < 0.0F) this.modVersion = 0.0F;
-		if (this.remoteCacheTimeSeconds < 0) this.remoteCacheTimeSeconds = 600L;
+		if(this.modName == null || this.modName.length() < 1) this.modName = "all";
+		if(this.modVersion == null || this.modVersion < 0.0F) this.modVersion = 0.0F;
+		if(this.remoteCacheTimeSeconds < 0) this.remoteCacheTimeSeconds = 600L;
 	}
 
 	public byte[] getBytes(){
 		try{
-			ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-			new ObjectOutputStream(byteStream).writeObject(this);
-			return byteStream.toByteArray();
+			ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+			new ObjectOutputStream(stream).writeObject(this);
+			//シリアライズしている
+
+			return stream.toByteArray();
 		}catch(IOException e){
 
 		}
@@ -57,8 +60,11 @@ public class ReplicatedPermissionsContainer implements Serializable{
 
 	public static ReplicatedPermissionsContainer fromBytes(byte[] data){
 		try{
-			ObjectInputStream inputStream = new ObjectInputStream(new ByteArrayInputStream(data));
-			ReplicatedPermissionsContainer object = (ReplicatedPermissionsContainer)inputStream.readObject();
+			ObjectInputStream stream = new ObjectInputStream(new ByteArrayInputStream(data));
+
+			ReplicatedPermissionsContainer object = (ReplicatedPermissionsContainer )stream.readObject();
+			//デシリアライズしている
+
 			return object;
 		}catch(IOException e){
 

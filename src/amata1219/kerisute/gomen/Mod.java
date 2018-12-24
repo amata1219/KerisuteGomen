@@ -2,20 +2,20 @@ package amata1219.kerisute.gomen;
 
 public class Mod {
 
-	private final Type type;
+	private final ModLoaderType type;
 
 	private final String id;
 	private final String version;
 
 	private boolean block;
 
-	public Mod(Type type, String id, String version){
+	public Mod(ModLoaderType type, String id, String version){
 		this.type = type;
 		this.id = id;
 		this.version = version;
 	}
 
-	public Type getType(){
+	public ModLoaderType getType(){
 		return type;
 	}
 

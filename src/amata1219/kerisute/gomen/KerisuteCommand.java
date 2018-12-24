@@ -8,6 +8,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
+import amata1219.kerisute.gomen.old.KerisuteGomenOld;
+import amata1219.kerisute.gomen.old.KerisuteSamurai;
+
 public class KerisuteCommand implements TabExecutor{
 
 	private KerisuteGomenOld plugin;

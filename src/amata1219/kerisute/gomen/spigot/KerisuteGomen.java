@@ -1,5 +1,11 @@
-package amata1219.kerisute.gomen;
+package amata1219.kerisute.gomen.spigot;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -17,11 +23,25 @@ public class KerisuteGomen extends JavaPlugin implements Listener, PluginMessage
 
 	private static KerisuteGomen plugin;
 
+	public static final String VERSION = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+	//vX_XX_RXの形になる
+
+	public static final List<String> IGNORE_TAGS = Collections.unmodifiableList(new ArrayList<>(Arrays.asList("minecraft", "FML", "forge", "mcp", "Minecraft Forge", "LiteLoader", "LabyMod")));
+
 	@Override
 	public void onEnable(){
 		plugin = this;
 
 		registerChannels("MC|Brand", "FML|HS", "PERMISSIONSREPL", "5zig_Set", "LMC", "WECUI");
+		/*
+		 * 対応チャンネル(左から順に)
+		 * ・Minecraft
+		 * ・Forge
+		 * ・LiteLoader
+		 * ・5zigClient
+		 * ・LabyModClient
+		 * ・WorldEditCUI
+		 */
 	}
 
 	@Override
@@ -76,7 +96,7 @@ public class KerisuteGomen extends JavaPlugin implements Listener, PluginMessage
 	}
 
 	@EventHandler
-	public void onQuti(PlayerQuitEvent e){
+	public void onQuit(PlayerQuitEvent e){
 
 	}
 
@@ -89,6 +109,9 @@ public class KerisuteGomen extends JavaPlugin implements Listener, PluginMessage
 	public void onPluginMessageReceived(String tag, Player player, byte[] data) {
 		if(tag.equals("BungeeCord") || tag.equals("bungeecord:main"))
 			return;
+		//BungeeCordは関係無いので戻る
+
+
 	}
 
 }

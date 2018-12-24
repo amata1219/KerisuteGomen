@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen;
+package amata1219.kerisute.gomen.old;
 
 import java.util.HashMap;
 
@@ -7,6 +7,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import amata1219.kerisute.gomen.CustomConfig;
+import amata1219.kerisute.gomen.KerisuteCommand;
 
 public class KerisuteGomenOld extends JavaPlugin {
 
@@ -43,7 +46,7 @@ public class KerisuteGomenOld extends JavaPlugin {
 		//unregisterPluginChannel("LABYMOD");
 		unregisterPluginChannel("WECUI");
 		PlayerRegisterChannelEvent.getHandlerList().unregister(samurai);
-		ClientLoginEvent.getHandlerList().unregister(samurai);
+		ClientLoginEventOld.getHandlerList().unregister(samurai);
 	}
 
 	private void registerPluginChannel(String channel){

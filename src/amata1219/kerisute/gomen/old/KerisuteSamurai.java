@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen;
+package amata1219.kerisute.gomen.old;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -22,6 +22,8 @@ import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import amata1219.kerisute.gomen.CustomConfig;
+import amata1219.kerisute.gomen.ModOld;
 import amata1219.receiving.packets.on.spigot.PacketInjector;
 import net.eq2online.permissions.ReplicatedPermissionsContainer;
 
@@ -63,7 +65,6 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 
 	public KerisuteSamurai(KerisuteGomenOld plugin){
 		this.plugin = plugin;
-		injector = new PacketInjector();
 		config = plugin.getMainConfig();
 		loadValues();
 	}
@@ -210,7 +211,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 					int i = 0;
 					public void run(){
 						if(d.isFcheck()||!player.isOnline()||i == 60){
-							ClientLoginEvent event  = new ClientLoginEvent(d);
+							ClientLoginEventOld event  = new ClientLoginEventOld(d);
 							if(!player.isOnline())event.setInvalid(true);
 							plugin.getServer().getPluginManager().callEvent(event);
 							cancel();
@@ -223,7 +224,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 					int i = 0;
 					public void run(){
 						if(d.isLcheck()||!player.isOnline()||i == 60){
-							ClientLoginEvent event  = new ClientLoginEvent(d);
+							ClientLoginEventOld event  = new ClientLoginEventOld(d);
 							if(!player.isOnline())event.setInvalid(true);
 							plugin.getServer().getPluginManager().callEvent(event);
 							cancel();
@@ -234,7 +235,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 			}else{
 				new BukkitRunnable(){
 					public void run(){
-						ClientLoginEvent event  = new ClientLoginEvent(d);
+						ClientLoginEventOld event  = new ClientLoginEventOld(d);
 						if(!player.isOnline())event.setInvalid(true);
 						plugin.getServer().getPluginManager().callEvent(event);
 					}
@@ -291,7 +292,7 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 	}
 
 	@EventHandler
-	public void onClientLoginEvent(ClientLoginEvent e){
+	public void onClientLoginEvent(ClientLoginEventOld e){
 		ClientData d = e.getClientData();
 		if(e.isInvalid() && isEnableLogging){
 			Player p = d.getPlayer();

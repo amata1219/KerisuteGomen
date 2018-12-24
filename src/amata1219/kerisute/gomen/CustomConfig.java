@@ -9,6 +9,8 @@ import java.nio.charset.StandardCharsets;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import amata1219.kerisute.gomen.old.KerisuteGomenOld;
+
 public class CustomConfig {
 
 	private FileConfiguration config = null;

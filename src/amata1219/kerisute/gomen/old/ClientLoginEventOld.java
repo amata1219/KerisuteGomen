@@ -1,16 +1,16 @@
-package amata1219.kerisute.gomen;
+package amata1219.kerisute.gomen.old;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class ClientLoginEvent extends Event{
+public class ClientLoginEventOld extends Event{
 
 	private static final HandlerList  handlers = new HandlerList();
 	private ClientData data;
 	private boolean isInvalid;
 
-	public ClientLoginEvent(ClientData data){
+	public ClientLoginEventOld(ClientData data){
 		this.data = data;
 	}
 
