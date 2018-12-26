@@ -3,9 +3,10 @@ package amata1219.kerisute.gomen.spigot;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -19,18 +20,24 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.Messenger;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
+import amata1219.kerisute.gomen.ClientInfo;
+
 public class KerisuteGomen extends JavaPlugin implements Listener, PluginMessageListener {
 
 	private static KerisuteGomen plugin;
 
-	public static final String VERSION = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+	public String version;
 	//vX_XX_RXの形になる
 
 	public static final List<String> IGNORE_TAGS = Collections.unmodifiableList(new ArrayList<>(Arrays.asList("minecraft", "FML", "forge", "mcp", "Minecraft Forge", "LiteLoader", "LabyMod")));
 
+	private final HashMap<UUID, ClientInfo> data = new HashMap<>();
+
 	@Override
 	public void onEnable(){
 		plugin = this;
+
+		version = getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
 
 		registerChannels("MC|Brand", "FML|HS", "PERMISSIONSREPL", "5zig_Set", "LMC", "WECUI");
 		/*
@@ -92,17 +99,32 @@ public class KerisuteGomen extends JavaPlugin implements Listener, PluginMessage
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e){
-
+		data.put(e.getPlayer().getUniqueId(), new ClientInfo());
 	}
 
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e){
-
+		data.remove(e.getPlayer().getUniqueId());
 	}
 
 	@EventHandler
 	public void onRegister(PlayerRegisterChannelEvent e){
+		Player player = e.getPlayer();
+		UUID uuid = player.getUniqueId();
 
+		if(!data.containsKey(uuid))
+			return;
+
+		ClientInfo info = data.get(uuid);
+
+		String channel = e.getChannel();
+		switch(channel.hashCode()){
+
+		}
+	}
+
+	public static void main(String[] args){
+		System.out.println("fml".hashCode());
 	}
 
 	@Override
@@ -112,6 +134,13 @@ public class KerisuteGomen extends JavaPlugin implements Listener, PluginMessage
 		//BungeeCordは関係無いので戻る
 
 
+	}
+
+	public void done(UUID uuid){
+		if(!data.containsKey(uuid))
+			return;
+
+		ClientInfo info = data.get(uuid);
 	}
 
 }

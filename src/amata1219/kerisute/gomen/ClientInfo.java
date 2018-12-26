@@ -3,12 +3,15 @@ package amata1219.kerisute.gomen;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class ClientInfoBase {
+public class ClientInfo {
 
 	private final Set<String> channels = new HashSet<>();
-
 	private final Set<Client> clients = new HashSet<>();
 	private final Set<Mod> mods = new HashSet<>();
+
+	public ClientInfo(){
+
+	}
 
 	public Set<String> getChannels() {
 		return channels;

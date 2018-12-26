@@ -24,7 +24,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import amata1219.kerisute.gomen.CustomConfig;
 import amata1219.kerisute.gomen.ModOld;
-import amata1219.receiving.packets.on.spigot.PacketInjector;
 import net.eq2online.permissions.ReplicatedPermissionsContainer;
 
 public class KerisuteSamurai implements Listener, PluginMessageListener{
@@ -32,7 +31,6 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 	//private boolean DEBUG = true;
 
 	private KerisuteGomenOld plugin;
-	private static PacketInjector injector;
 	private CustomConfig config;
 
 	private boolean isEnableLogging = true;
@@ -90,7 +88,6 @@ public class KerisuteSamurai implements Listener, PluginMessageListener{
 
 	@EventHandler
 	public void onPlayerJoinEvent(PlayerJoinEvent e){
-		injector.addPlayer(e.getPlayer());
 	}
 
 	@EventHandler
