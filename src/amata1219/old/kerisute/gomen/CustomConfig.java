@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen;
+package amata1219.old.kerisute.gomen;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import amata1219.kerisute.gomen.old.KerisuteGomenOld;
+import amata1219.old.kerisute.gomen.old.KerisuteGomenOld;
 
 public class CustomConfig {
 

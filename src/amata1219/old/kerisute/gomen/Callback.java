@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen;
+package amata1219.old.kerisute.gomen;
 
 public interface Callback {
 

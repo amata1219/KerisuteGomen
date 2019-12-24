@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen.bungee;
+package amata1219.old.kerisute.gomen.bungee;
 
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;

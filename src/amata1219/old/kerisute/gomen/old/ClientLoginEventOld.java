@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen.old;
+package amata1219.old.kerisute.gomen.old;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;

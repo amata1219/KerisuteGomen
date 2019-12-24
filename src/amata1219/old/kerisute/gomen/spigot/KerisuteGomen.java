@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen.spigot;
+package amata1219.old.kerisute.gomen.spigot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.Messenger;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
-import amata1219.kerisute.gomen.ClientInfo;
+import amata1219.old.kerisute.gomen.ClientInfo;
 
 public class KerisuteGomen extends JavaPlugin implements Listener, PluginMessageListener {
 

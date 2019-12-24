@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen.old;
+package amata1219.old.kerisute.gomen.old;
 
 import java.util.HashMap;
 
@@ -8,8 +8,8 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import amata1219.kerisute.gomen.CustomConfig;
-import amata1219.kerisute.gomen.KerisuteCommand;
+import amata1219.old.kerisute.gomen.CustomConfig;
+import amata1219.old.kerisute.gomen.KerisuteCommand;
 
 public class KerisuteGomenOld extends JavaPlugin {
 

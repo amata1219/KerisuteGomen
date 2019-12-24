@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen.old;
+package amata1219.old.kerisute.gomen.old;
 
 import java.util.HashMap;
 import java.util.UUID;

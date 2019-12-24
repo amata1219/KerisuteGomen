@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen;
+package amata1219.old.kerisute.gomen;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
-import amata1219.kerisute.gomen.old.KerisuteGomenOld;
-import amata1219.kerisute.gomen.old.KerisuteSamurai;
+import amata1219.old.kerisute.gomen.old.KerisuteGomenOld;
+import amata1219.old.kerisute.gomen.old.KerisuteSamurai;
 
 public class KerisuteCommand implements TabExecutor{
 

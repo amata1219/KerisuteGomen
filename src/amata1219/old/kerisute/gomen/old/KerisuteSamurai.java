@@ -1,4 +1,4 @@
-package amata1219.kerisute.gomen.old;
+package amata1219.old.kerisute.gomen.old;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -22,8 +22,8 @@ import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import amata1219.kerisute.gomen.CustomConfig;
-import amata1219.kerisute.gomen.ModOld;
+import amata1219.old.kerisute.gomen.CustomConfig;
+import amata1219.old.kerisute.gomen.ModOld;
 import net.eq2online.permissions.ReplicatedPermissionsContainer;
 
 public class KerisuteSamurai implements Listener, PluginMessageListener{
