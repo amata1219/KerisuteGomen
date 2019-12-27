@@ -1,7 +1,9 @@
 package amata1219.kerisute.gomen;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.ChannelNotRegisteredException;
 
 public class KerisuteGomen extends JavaPlugin {
 
@@ -38,6 +40,7 @@ public class KerisuteGomen extends JavaPlugin {
 	 * Winterware
 	 * Pixel Client
 	 * Cosmic Client
+	 * Aristois Client (powered by Easy Minecraft Client framework)
 	 * 
 	 * Undetectable
 	 * 
@@ -55,7 +58,7 @@ public class KerisuteGomen extends JavaPlugin {
 	 */
 	
 	/*
-	 * Listeners
+	 * Channels
 	 * 
 	 * ! - Mod Loader
 	 * ? - Client
@@ -73,7 +76,7 @@ public class KerisuteGomen extends JavaPlugin {
 	 * ! Rift: + * rift
 	 * ! Fabric: + * fabric
 	 * ? Lunar Client: * Lunar-Client
-	 * ? Remix Client: * Lunar-Client
+	 * ? Remix : * BLC|M
 	 * ? Labymod: LABYMOD
 	 * ? Labymod V3: LMC
 	 * ? 5zig Mod: 5zig_Set, l:5zig_Set
@@ -81,15 +84,15 @@ public class KerisuteGomen extends JavaPlugin {
 	 * @ Better Sprinting: BSprint, l:bsm, l:bsprint
 	 * ? Hyperium: hyperium
 	 * @ JourneyMap: journeymap_channel, l:world_info
-	 * ? Remix: BLC|M
-	 * @ Waila - waila
-	 * @ World Downloader: + * WorldDownloader
-	 * @ World Downloader: WDL|INIT, WDL|CONTROL
+	 * @ Waila: waila
+	 * @ World Downloader: + wdl
+	 * @ World Downloader: * WorldDownloader
+	 * @ World Downloader: ""(empty), WDL|INIT, WDL|CONTROL
 	 * ? Easy Minecraft Client: * Subsystem
 	 * @ XaeroMinimap: XaeroMinimap
 	 * @ InventoryTweaks: InventoryTweaks
 	 * @ World Edit CUI: WECUI
-	 * ? Vape: LOLIMAHACKER
+	 * ? Vape: LOLIMAHCKER
 	 * ? Pixel Client: MC|Pixel
 	 * ? Winterware: LC|Brand
 	 * @ JEI: JEI
@@ -98,6 +101,27 @@ public class KerisuteGomen extends JavaPlugin {
 	 * ? Badlion Client: ??? (S→C: badlion:mods, badlion:cps)
 	 * ? Console Client: * Minecraft-Console-Client
 	 * ? PvPLounge Client 1.8: * PLC18
+	 * ! CheatBreaker: CB|INIT, CB-Binary
+	 */
+	
+	/*
+		if (!Bukkit.getServer().getVersion().contains("1.13")
+			&& !Bukkit.getServer().getVersion().contains("1.14")
+			&& !Bukkit.getServer().getVersion().contains("1.15")) {
+				this.b.sendPluginMessage(this.a, "FML|HS", new byte[] { -2, 0 });
+				this.b.sendPluginMessage(this.a, "FML|HS", new byte[] { 0, 2, 0, 0, 0, 0 });
+				this.b.sendPluginMessage(this.a, "FML|HS", new byte[] { 2, 0, 0, 0, 0 });
+		} else {
+				this.b.sendPluginMessage(this.a, arg0, new byte[] { -2, 0 });
+				this.b.sendPluginMessage(this.a, arg0, new byte[] { 0, 2, 0, 0, 0, 0 });
+				this.b.sendPluginMessage(this.a, arg0, new byte[] { 2, 0, 0, 0, 0 });
+		}
+		
+		if (arg0.equals("PERMISSIONSREPL")) {
+			this.b.sendPluginMessage(this.a, "PERMISSIONSREPL", new byte[] { -2 });
+			this.b.sendPluginMessage(this.a, "PERMISSIONSREPL", new byte[] { 0, 2 });
+			this.b.sendPluginMessage(this.a, "PERMISSIONSREPL", new byte[] { 2 });
+		}
 	 */
 	
 	private static KerisuteGomen plugin;
