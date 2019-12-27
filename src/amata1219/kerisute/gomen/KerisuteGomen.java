@@ -25,10 +25,10 @@ public class KerisuteGomen extends JavaPlugin {
 	 * 
 	 * Yet to be validated
 	 * 
-	 * LabyMod Ghost Client x
-	 * CheatBreakerHUD v3 x
-	 * Sigma x
-	 * Wolfram Client x
+	 * LabyMod Ghost Client
+	 * CheatBreakerHUD v3
+	 * Sigma
+	 * Wolfram Client
 	 * Jigsaw
 	 * Impact Client
 	 * CustomNPCs
@@ -37,6 +37,7 @@ public class KerisuteGomen extends JavaPlugin {
 	 * JEI
 	 * Winterware
 	 * Pixel Client
+	 * Cosmic Client
 	 * 
 	 * Undetectable
 	 * 
@@ -56,30 +57,47 @@ public class KerisuteGomen extends JavaPlugin {
 	/*
 	 * Listeners
 	 * 
-	 * Labymod - LABYMOD
-	 * Labymod V3 - LMC
-	 * 5zig Mod - 5zig_Set
-	 * PX Mod - PX|Version
-	 * Better Sprinting - BSprint, l:bsm, l:bsprint
-	 * Hyperium - hyperium
-	 * JourneyMap - journeymap_channel, l:world_info
-	 * Reamix - BLC|M
-	 * Waila - waila
-	 * World Downloader - REGISTER, minecraft:register
-	 * Easy Minecraft Client - MC|Brand, minecraft:brand
-	 * Rift - MC|Brand, minecraft: brand
-	 * Fabric - MC|Brand, minecraft brand
-	 * Forge - MC|Brand, minecraft:brand
-	 * World Downloader - MC|Brand, minecraft:brand
-	 * Forge Mod Loader - FML|HS, l:fmlhs
-	 * XaeroMinimap - XaeroMinimap
-	 * InventoryTweaks - InventoryTweaks
-	 * World Downloader - WDL|INIT, WDL|CONTROL
-	 * World Edit CUI - WECUI
-	 * Vape - LOLIMAHCKER
-	 * Pixel Client - MC|Pixel
-	 * Winterware - LC|Brand
-	 * JEI - JEI
+	 * ! - Mod Loader
+	 * ? - Client
+	 * @ - Mod
+	 * 
+	 * +: REGISTER, minecraft:register, register
+	 * *: MC|Brand, minecraft:brand
+	 * 
+	 * Forge Handshake: FML|HS, l:fmlhs
+	 * Forge ModPack: + FML|MP
+	 * 
+	 * ? Notchian: + vanilla
+	 * ! Forge: + FML|HS, l:fmlhs
+	 * ! LiteLoader: + * LiteLoader
+	 * ! Rift: + * rift
+	 * ! Fabric: + * fabric
+	 * ? Lunar Client: * Lunar-Client
+	 * ? Remix Client: * Lunar-Client
+	 * ? Labymod: LABYMOD
+	 * ? Labymod V3: LMC
+	 * ? 5zig Mod: 5zig_Set, l:5zig_Set
+	 * ? PX Mod: PX|Version
+	 * @ Better Sprinting: BSprint, l:bsm, l:bsprint
+	 * ? Hyperium: hyperium
+	 * @ JourneyMap: journeymap_channel, l:world_info
+	 * ? Remix: BLC|M
+	 * @ Waila - waila
+	 * @ World Downloader: + * WorldDownloader
+	 * @ World Downloader: WDL|INIT, WDL|CONTROL
+	 * ? Easy Minecraft Client: * Subsystem
+	 * @ XaeroMinimap: XaeroMinimap
+	 * @ InventoryTweaks: InventoryTweaks
+	 * @ World Edit CUI: WECUI
+	 * ? Vape: LOLIMAHACKER
+	 * ? Pixel Client: MC|Pixel
+	 * ? Winterware: LC|Brand
+	 * @ JEI: JEI
+	 * ? Jigsaw: * Vanilla
+	 * @ Schematica: + schematica
+	 * ? Badlion Client: ??? (S→C: badlion:mods, badlion:cps)
+	 * ? Console Client: * Minecraft-Console-Client
+	 * ? PvPLounge Client 1.8: * PLC18
 	 */
 	
 	private static KerisuteGomen plugin;
