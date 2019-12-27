@@ -19,16 +19,24 @@ public class KerisuteGomen extends JavaPlugin {
 	 * Badlion
 	 * Vape Cracked
 	 * PX Mod
+	 * Lunar Client
+	 * CheatBreaker
 	 * Named Original
 	 * 
 	 * Yet to be validated
 	 * 
-	 * LabyMod Ghost Client
-	 * CheatBreakerHUD v3
-	 * Sigma 
-	 * Wolfram Client
+	 * LabyMod Ghost Client x
+	 * CheatBreakerHUD v3 x
+	 * Sigma x
+	 * Wolfram Client x
 	 * Jigsaw
 	 * Impact Client
+	 * CustomNPCs
+	 * Console Client
+	 * Schematica Mod
+	 * JEI
+	 * Winterware
+	 * Pixel Client
 	 * 
 	 * Undetectable
 	 * 
@@ -43,6 +51,35 @@ public class KerisuteGomen extends JavaPlugin {
 	 * Fabric
 	 * Rift
 	 * 
+	 */
+	
+	/*
+	 * Listeners
+	 * 
+	 * Labymod - LABYMOD
+	 * Labymod V3 - LMC
+	 * 5zig Mod - 5zig_Set
+	 * PX Mod - PX|Version
+	 * Better Sprinting - BSprint, l:bsm, l:bsprint
+	 * Hyperium - hyperium
+	 * JourneyMap - journeymap_channel, l:world_info
+	 * Reamix - BLC|M
+	 * Waila - waila
+	 * World Downloader - REGISTER, minecraft:register
+	 * Easy Minecraft Client - MC|Brand, minecraft:brand
+	 * Rift - MC|Brand, minecraft: brand
+	 * Fabric - MC|Brand, minecraft brand
+	 * Forge - MC|Brand, minecraft:brand
+	 * World Downloader - MC|Brand, minecraft:brand
+	 * Forge Mod Loader - FML|HS, l:fmlhs
+	 * XaeroMinimap - XaeroMinimap
+	 * InventoryTweaks - InventoryTweaks
+	 * World Downloader - WDL|INIT, WDL|CONTROL
+	 * World Edit CUI - WECUI
+	 * Vape - LOLIMAHCKER
+	 * Pixel Client - MC|Pixel
+	 * Winterware - LC|Brand
+	 * JEI - JEI
 	 */
 	
 	private static KerisuteGomen plugin;

@@ -1,0 +1,223 @@
+# CLIENT DETECTION ONLY 
+"5zig_Set" or "l:5zig_Set":
+
+
+The 5zig Mod
+"The 5zig Mod"
+
+"LMC":
+
+
+Labymod v3
+"Labymod v3"
+
+"LABYMOD":
+
+
+Labymod
+"Labymod"
+
+"PX|Version":
+
+
+PXMod
+"PXMod"
+
+"LOLIMAHACKER":
+
+
+Vape
+"Vape"
+
+"hyperium":
+
+
+Hyperium
+"Hyperium"
+
+"MC|Pixel":
+
+
+Pixel Client
+"Pixel Client"
+
+"LC|Brand":
+
+
+Winterware
+"Winterware"
+
+
+
+#----------------------------------------------------------------------------------------
+
+# MOD DETECTION ONLY
+"JEI":
+
+
+JEI
+add "JEI" to {mods.%event-player's UUID%::*}
+
+"BSprint" or "l:bsm" or "l:bsprint":
+
+
+BetterSprint Mod
+add "BetterSprint Mod" to {mods.%event-player's UUID%::*}
+
+
+"journeymap_channel" or "l:world_info":
+
+
+JourneyMap
+add "JourneyMap" to {mods.%event-player's UUID%::*}
+
+"XaeroMinimap":
+
+
+XaeroMinimap
+add "XaeroMinimap" to {mods.%event-player's UUID%::*}
+
+"InventoryTweaks":
+
+
+InventoryTweaks
+add "InventoryTweaks" to {mods.%event-player's UUID%::*}
+
+"" or "WDL|INIT" or "WDL|CONTROL":
+
+
+WorldDownloader
+add "WorldDownloader" to {mods.%event-player's UUID%::*}
+
+"WECUI":
+
+
+WECUI
+add "WECUI" to {mods.%event-player's UUID%::*}
+
+
+"waila":
+
+
+Waila
+add "Waila" to {mods.%event-player's UUID%::*}
+
+
+#----------------------------------------------------------------------------
+
+
+"FML|HS" or "l:fmlhs":
+set {_handshake} to new String([byte buffer field of event-packet])
+send "%{_handshake}%" to console
+send "&b(%event-player%) Forge Handshake" to console
+
+
+"REGISTER" or "minecraft:register" or "register":
+set {_message} to new String([byte buffer field of event-packet])
+send "&eREGISTER CHANNEL DATA: %{_message}%" to console
+"FML|HS" or "l:fmlhs":
+set {_handshake} to new String([byte buffer field of event-packet])
+send "%{_handshake}%" to console
+send "forge handshake -> %event-player%" to console
+
+"FML|MP":
+send "forge modpack -> %event-player%" to console
+
+"vanilla":
+send "vanilla packet -> %event-player%" to console
+
+"schematica":
+
+
+Schematica Mod"
+add "Schematica Mod" to {forge.%event-player's UUID%.mods::*} 
+
+"Subsystem":
+
+
+Easy Minecraft Client
+"Easy Minecraft Client"
+
+
+"LiteLoader":
+
+
+LiteLoader Mod Launcher
+"LiteLoader Mod Launcher"
+
+"rift":
+
+
+Rift
+"Rift"
+
+"fabric":
+
+
+Fabric
+"Fabric"
+
+"WorldDownloader":
+
+
+WorldDownloader
+add "WorldDownloader" to {forge.%event-player's UUID%.mods::*} 
+
+"Lunar-Client":
+
+
+Remix Client
+"Remix"
+
+
+"MC|Brand" or "minecraft:brand":
+set {_message} to new String([byte buffer field of event-packet])
+send "&6MCBRAND CHANNEL DATA: %{_message}%" to console
+"vanilla":
+send "&6vanilla packet -> %event-player%" to console
+"Vanilla Minecraft / Undetectable Client"
+
+if {_message}.contains("Vanilla"): #EXPERIMENTAL VERSION
+
+
+Jigsaw
+"Jigsaw"
+
+"Minecraft-Console-Client":
+set {_ver} to {_message}.split("/")[1]
+
+
+Console Client (%{_ver}%)
+"Console Client v%{_ver}%"
+
+"LiteLoader":
+
+
+LiteLoader Mod Launcher
+"LiteLoader Mod Launcher"
+
+"PLC18":
+
+
+PvPLounge Client 1.8
+"PvPLounge Client 1.8"
+
+"Subsystem":
+
+
+Easy Minecraft Client
+"Easy Minecraft Client"
+
+"rift":
+
+
+Rift
+"Rift"
+
+"fabric":
+Fabric
+"Fabric"
+
+"WorldDownloader":
+WorldDownloader
+add "WorldDownloader" to {forge.%event-player's UUID%.mods::*} 
