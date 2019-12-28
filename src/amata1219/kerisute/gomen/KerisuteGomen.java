@@ -1,9 +1,7 @@
 package amata1219.kerisute.gomen;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.messaging.ChannelNotRegisteredException;
 
 public class KerisuteGomen extends JavaPlugin {
 
@@ -62,7 +60,8 @@ public class KerisuteGomen extends JavaPlugin {
 	 * 
 	 * ! - Mod Loader
 	 * ? - Client
-	 * @ - Mod
+	 * & - Forge Mod
+	 * @(Mod Loader Name) - Other Mod
 	 * 
 	 * +: REGISTER, minecraft:register, register
 	 * *: MC|Brand, minecraft:brand
@@ -81,27 +80,33 @@ public class KerisuteGomen extends JavaPlugin {
 	 * ? Labymod V3: LMC
 	 * ? 5zig Mod: 5zig_Set, l:5zig_Set
 	 * ? PX Mod: PX|Version
-	 * @ Better Sprinting: BSprint, l:bsm, l:bsprint
+	 * & Better Sprinting: BSprint, l:bsm, l:bsprint
 	 * ? Hyperium: hyperium
-	 * @ JourneyMap: journeymap_channel, l:world_info
-	 * @ Waila: waila
-	 * @ World Downloader: + wdl
-	 * @ World Downloader: * WorldDownloader
-	 * @ World Downloader: ""(empty), WDL|INIT, WDL|CONTROL
+	 * & JourneyMap: journeymap_channel, l:world_info
+	 * & Waila: waila
+	 * @(LiteLoader) World Downloader: + wdl
+	 * @(LiteLoader) World Downloader: * WorldDownloader
+	 * @(LiteLoader) World Downloader: ""(empty), WDL|INIT, WDL|CONTROL, WDL|REQUEST
 	 * ? Easy Minecraft Client: * Subsystem
-	 * @ XaeroMinimap: XaeroMinimap
-	 * @ InventoryTweaks: InventoryTweaks
-	 * @ World Edit CUI: WECUI
+	 * & XaeroMinimap: XaeroMinimap
+	 * & InventoryTweaks: InventoryTweaks
+	 * @(LiteLoader) World Edit CUI: WECUI
 	 * ? Vape: LOLIMAHCKER
 	 * ? Pixel Client: MC|Pixel
 	 * ? Winterware: LC|Brand
-	 * @ JEI: JEI
+	 * & JEI: JEI, jei
+	 * & NEI: NEI
 	 * ? Jigsaw: * Vanilla
-	 * @ Schematica: + schematica
+	 * & Schematica: + schematica
 	 * ? Badlion Client: ??? (S→C: badlion:mods, badlion:cps)
 	 * ? Console Client: * Minecraft-Console-Client
 	 * ? PvPLounge Client 1.8: * PLC18
 	 * ! CheatBreaker: CB|INIT, CB-Binary
+	 * & Advanced Capes Mod: advancedcapes
+	 * & Quick Hotbar: quickhotbar
+	 * 
+	 * Forge Mod はチャンネルを利用する必要無し
+	 * 
 	 */
 	
 	/*
@@ -121,6 +126,34 @@ public class KerisuteGomen extends JavaPlugin {
 			this.b.sendPluginMessage(this.a, "PERMISSIONSREPL", new byte[] { -2 });
 			this.b.sendPluginMessage(this.a, "PERMISSIONSREPL", new byte[] { 0, 2 });
 			this.b.sendPluginMessage(this.a, "PERMISSIONSREPL", new byte[] { 2 });
+		}
+	 */
+	
+	/*
+	 * 		if (1.13以前) {
+			ZIG = "5zig_Set";
+			BSPRINT = "BSprint";
+			BSM = "BSM";
+			WDLINIT = "WDL|INIT";
+			WDLCONTROL = "WDL|CONTROL";
+			MCBRAND = "MC|Brand";
+			WDLREQ = "WDL|REQUEST";
+			SCHEMATICA = "schematica";
+			FML = "FML";
+			FMLHS = "FMLHS";
+		}
+
+		if (1.13以降) {
+			ZIG = "l:5zig_set";
+			BSM = "l:bsm";
+			BSM2 = "l:bsprint";
+			MCBRAND = "minecraft:brand";
+			WDLREQ = "wdl:request";
+			SCHEMATICA = "l:schematica";
+			WDLINIT = "wdl:init";
+			WDLCONTROL = "wdl:control";
+			FML = "l:fml";
+			FMLHS = "l:fmlhs";
 		}
 	 */
 	
