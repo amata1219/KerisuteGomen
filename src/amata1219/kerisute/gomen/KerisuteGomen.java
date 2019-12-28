@@ -6,56 +6,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class KerisuteGomen extends JavaPlugin {
 
 	/*
-	 * Clients
-	 * 
-	 * Notchian
-	 * Forge
-	 * LiteLoader
-	 * Fabric
-	 * Rift
-	 * LabyMod
-	 * 5zig Mod
-	 * Hyperium
-	 * Badlion
-	 * Vape Cracked
-	 * PX Mod
-	 * Lunar Client
-	 * CheatBreaker
-	 * Named Original
-	 * 
-	 * Yet to be validated
-	 * 
-	 * LabyMod Ghost Client
-	 * CheatBreakerHUD v3
-	 * Sigma
-	 * Wolfram Client
-	 * Jigsaw
-	 * Impact Client
-	 * CustomNPCs
-	 * Console Client
-	 * Schematica Mod
-	 * JEI
-	 * Winterware
-	 * Pixel Client
-	 * Cosmic Client
-	 * Aristois Client (powered by Easy Minecraft Client framework)
-	 * 
-	 * Undetectable
-	 * 
-	 * Optifine
-	 * Wurst
-	 * LiquidBounce
-	 * 
-	 * Mods
-	 * 
-	 * Forge
-	 * LiteLoader
-	 * Fabric
-	 * Rift
-	 * 
-	 */
-	
-	/*
 	 * Channels
 	 * 
 	 * ! - Mod Loader
@@ -69,41 +19,46 @@ public class KerisuteGomen extends JavaPlugin {
 	 * Forge Handshake: FML|HS, l:fmlhs
 	 * Forge ModPack: + FML|MP
 	 * 
-	 * ? Notchian: + vanilla
 	 * ! Forge: + FML|HS, l:fmlhs
 	 * ! LiteLoader: + * LiteLoader
 	 * ! Rift: + * rift
 	 * ! Fabric: + * fabric
+	 * 
+	 * ? Notchian: + vanilla
+	 * ? Osmium: * vanilla/remake in C
 	 * ? Lunar Client: * Lunar-Client
 	 * ? Remix : * BLC|M
 	 * ? Labymod: LABYMOD
 	 * ? Labymod V3: LMC
 	 * ? 5zig Mod: 5zig_Set, l:5zig_Set
 	 * ? PX Mod: PX|Version
-	 * & Better Sprinting: BSprint, l:bsm, l:bsprint
 	 * ? Hyperium: hyperium
-	 * & JourneyMap: journeymap_channel, l:world_info
-	 * & Waila: waila
-	 * @(LiteLoader) World Downloader: + wdl
-	 * @(LiteLoader) World Downloader: * WorldDownloader
-	 * @(LiteLoader) World Downloader: ""(empty), WDL|INIT, WDL|CONTROL, WDL|REQUEST
 	 * ? Easy Minecraft Client: * Subsystem
-	 * & XaeroMinimap: XaeroMinimap
-	 * & InventoryTweaks: InventoryTweaks
-	 * @(LiteLoader) World Edit CUI: WECUI
+	 * ? Aristois: * Subsystem
 	 * ? Vape: LOLIMAHCKER
 	 * ? Pixel Client: MC|Pixel
 	 * ? Winterware: LC|Brand
+	 * ? Jigsaw: * Vanilla
+	 * ? Badlion Client: ??? (S→C: badlion:mods, badlion:cps)
+	 * ? Minecraft Console Client: * Minecraft-Console-Client
+	 * ? PvPLounge Client 1.8: * PLC18
+	 * ? CheatBreaker: CB|INIT, CB-Binary
+	 * 
+	 * & Better Sprinting: BSprint, l:bsm, l:bsprint
+	 * & JourneyMap: journeymap_channel, l:world_info
+	 * & Waila: waila
+	 * & XaeroMinimap: XaeroMinimap
+	 * & InventoryTweaks: InventoryTweaks
 	 * & JEI: JEI, jei
 	 * & NEI: NEI
-	 * ? Jigsaw: * Vanilla
 	 * & Schematica: + schematica
-	 * ? Badlion Client: ??? (S→C: badlion:mods, badlion:cps)
-	 * ? Console Client: * Minecraft-Console-Client
-	 * ? PvPLounge Client 1.8: * PLC18
-	 * ! CheatBreaker: CB|INIT, CB-Binary
 	 * & Advanced Capes Mod: advancedcapes
 	 * & Quick Hotbar: quickhotbar
+	 * 
+	 * @(LiteLoader) World Downloader: + wdl
+	 * @(LiteLoader) World Downloader: * WorldDownloader
+	 * @(LiteLoader) World Downloader: ""(empty), WDL|INIT, WDL|CONTROL, WDL|REQUEST
+	 * @(LiteLoader) World Edit CUI: WECUI
 	 * 
 	 * Forge Mod はチャンネルを利用する必要無し
 	 * 
@@ -130,7 +85,7 @@ public class KerisuteGomen extends JavaPlugin {
 	 */
 	
 	/*
-	 * 		if (1.13以前) {
+	 *  1.13以前
 			ZIG = "5zig_Set";
 			BSPRINT = "BSprint";
 			BSM = "BSM";
@@ -141,9 +96,8 @@ public class KerisuteGomen extends JavaPlugin {
 			SCHEMATICA = "schematica";
 			FML = "FML";
 			FMLHS = "FMLHS";
-		}
 
-		if (1.13以降) {
+		1.13以降
 			ZIG = "l:5zig_set";
 			BSM = "l:bsm";
 			BSM2 = "l:bsprint";
@@ -154,7 +108,6 @@ public class KerisuteGomen extends JavaPlugin {
 			WDLCONTROL = "wdl:control";
 			FML = "l:fml";
 			FMLHS = "l:fmlhs";
-		}
 	 */
 	
 	private static KerisuteGomen plugin;
