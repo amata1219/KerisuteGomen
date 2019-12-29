@@ -1,9 +1,15 @@
 package amata1219.kerisute.gomen;
 
-import org.bukkit.event.HandlerList;
-import org.bukkit.plugin.java.JavaPlugin;
+import java.io.UnsupportedEncodingException;
 
-public class KerisuteGomen extends JavaPlugin {
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.HandlerList;
+import org.bukkit.event.player.PlayerRegisterChannelEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
+
+public class KerisuteGomen extends JavaPlugin implements PluginMessageListener {
 
 	/*
 	 * Channels
@@ -115,6 +121,10 @@ public class KerisuteGomen extends JavaPlugin {
 	@Override
 	public void onEnable(){
 		plugin = this;
+		getServer().getMessenger().registerIncomingPluginChannel(this, "minecraft:brand", this);
+		getServer().getMessenger().registerIncomingPluginChannel(this, "l:fmlhs", this);
+		//getServer().getMessenger().registerIncomingPluginChannel(this, "minecraft:register", this);
+		//CraftServer
 	}
 	
 	@Override
@@ -124,6 +134,31 @@ public class KerisuteGomen extends JavaPlugin {
 	
 	public static KerisuteGomen plugin(){
 		return plugin;
+	}
+
+	@EventHandler
+	public void onRegisterChannel(PlayerRegisterChannelEvent event) {
+		System.out.println("Registered -> " + event.getChannel());
+	}
+	
+	@Override
+	public void onPluginMessageReceived(String channel, Player sender, byte[] data) {
+		System.out.println(channel);
+		switch(channel){
+		case "minecraft:brand":
+			try {
+				String str = new String(data, "UTF-8");
+				System.out.println(str);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			break;
+		case "l:fmlhs":
+			System.out.println("l:fmlhs");
+			break;
+		default:
+			break;
+		}
 	}
 	
 }
